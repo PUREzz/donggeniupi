@@ -1,19 +1,28 @@
 package com.example.casper;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Context;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 public class TextViewMainActivity extends AppCompatActivity {
 
-    private TextView textViewHelloWorld;
+    private TextView text_view_hello_world;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.text_View_activity_main);
+        setContentView(R.layout.activity_text_view);
 
-        textViewHelloWorld = findViewById(R.id.textViewHelloWorld);
-        textViewHelloWorld.setText("你好，编程实现的Hello_World");
+        text_view_hello_world = findViewById(R.id.text_view_hello_world);
+        //text_view_hello_world.setText("你好Android");
+
+
+        Context context = this.getApplicationContext();
+        String resName = "Hello_world2";
+        int hello_world2Id = context.getResources().getIdentifier(resName, "string", context.getPackageName());
+        text_view_hello_world.setText(this.getString(hello_world2Id));
+
+
     }
 }
